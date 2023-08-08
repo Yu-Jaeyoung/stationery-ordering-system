@@ -36,6 +36,8 @@
 - `develop branch` → default branch
 
 - `feature branch` → 기능 추가 branch
+    - branch naming : `feature/기능-요약`
+    - naming case : kebab-case
 
 <br>
 <br>
@@ -75,3 +77,17 @@ Summary
 → This Template is from @WiSoft-Wasabi 
 <br>
 → [Wisoft-Wasabi](https://github.com/Wisoft-Wasabi)
+
+<br>
+<br>
+
+# 👍🏻 Process
+### ⏳ 230809 → [Link To Notion](https://jaeyoung-yu.notion.site/230809-1df60637e0c0430eb7faeba2e215092f?pvs=4)
+
+- 문구류 주문 시스템 1차 Flow Chart 작성
+
+![flow-chart-1](https://github.com/Yu-Jaeyoung/stationery-ordering-system/assets/109587069/afbcfbca-2819-4dbc-843d-98d720f19717)
+
+- 진행 시나리오 작성
+
+- 추가 아이디어 생각
