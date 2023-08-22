@@ -1,46 +1,29 @@
 package src.data;
 
-public class Order {
-    private final String productName;
-    private final String unit;
-    private final int quantity;
-    private final double unitPrice;
-    private final double total;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Order(final String productName, final String unit, final int quantity, final double unitPrice) {
-        this.productName = productName;
-        this.unit = unit;
-        this.quantity = quantity;
-        this.unitPrice = unitPrice;
-        this.total = quantity * unitPrice;
+public class Order extends OrderLists {
+    private final List<Item> items;
+
+    public Order() {
+        items = new ArrayList<>();
     }
 
-    public String getProductName() {
-        return productName;
+    public void addItem(final Item item) {
+        items.add(item);
     }
 
-    public String getUnit() {
-        return unit;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public double getUnitPrice() {
-        return unitPrice;
-    }
-
-    public double getTotal() {
+    public double getTotalPrice() {
+        double total = 0;
+        for (Item item : items) {
+            total += item.getUnitTotalPrice();
+        }
         return total;
     }
 
     @Override
     public String toString() {
-        return  "\n품명 : " + productName +
-                " 단위 : " + unit +
-                " 수량 : " + quantity +
-                " 단가 : " + unitPrice +
-                " 총 금액 : " + total;
+        return " " + items;
     }
 }
