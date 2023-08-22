@@ -2,9 +2,12 @@ package src.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class IOUtils {
-    public static String readUserInput(BufferedReader reader) {
+    public final static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+    public static String readUserInput() {
         try {
             return reader.readLine();
         } catch (IOException e) {
@@ -12,11 +15,9 @@ public class IOUtils {
         }
     }
 
-    public static void closeReader(BufferedReader reader) {
+    public static void closeReader() {
         try {
-            if (reader != null) {
-                reader.close();
-            }
+            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
