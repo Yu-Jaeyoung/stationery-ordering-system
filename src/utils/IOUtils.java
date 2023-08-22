@@ -14,12 +14,4 @@ public class IOUtils {
             throw new RuntimeException("입력 오류가 발생했습니다.", e);
         }
     }
-
-    public static void closeReader() {
-        try {
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

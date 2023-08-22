@@ -35,9 +35,7 @@
 
 - `develop branch` → default branch
 
-- `feature branch` → 기능 추가 branch
-    - branch naming : `feature/기능-요약`
-    - naming case : kebab-case
+-  `SOS#IssuNo.` → issue branch
 
 <br>
 <br>
@@ -54,6 +52,8 @@
 | docs | 문서 수정 |
 | comment | 필요한 주석 추가 및 변경 |
 | refactor | 결과의 변경없이 코드의 구조 재조정 |
+| design | CSS 등 사용자 UI 디자인 변경 |
+| chore | 빌드 업무 수정, 패키지 매니저 수정, 패키지 관리자 구성 등 업데이트 등 |
 
 <br>
 <br>
@@ -82,6 +82,12 @@ Summary
 <br>
 
 # 👍🏻 Process
+### ⏳ 230822 → [Link To Notion](https://jaeyoung-yu.notion.site/230822-a0868736194c410c9273bc07250a601f?pvs=4)
+
+- 피드백 사항 반영
+
+- 시스템 설계 구체화
+
 ### ⏳ 230809 → [Link To Notion](https://jaeyoung-yu.notion.site/230809-1df60637e0c0430eb7faeba2e215092f?pvs=4)
 
 - 문구류 주문 시스템 1차 Flow Chart 작성
