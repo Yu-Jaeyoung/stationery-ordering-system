@@ -10,9 +10,9 @@ import static src.utils.IOUtils.closeReader;
 import static src.utils.IOUtils.readUserInput;
 
 public class Main {
+    final static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         OrderList orderList = new OrderList();
         OrderDetailsViewer orderDetailsViewer = new OrderDetailsViewer(orderList);
         OrderCreator orderCreator = new OrderCreator(orderList);
@@ -20,9 +20,10 @@ public class Main {
         EstimatePrinter estimatePrinter = new EstimatePrinter(stationeryShop);
 
         try {
+            // TODO : bolean 값을 활용해서 상태를 변경해서 끝낼 수 있게 조정 -> 현재는 true값으로만 지정되어있는 상태
             while (true) {
                 showMenu();
-
+                // TODO : Switch문 수정
                 System.out.print("원하는 작업을 선택하세요: ");
                 String choice = readUserInput(reader);
                 switch (choice) {
@@ -53,7 +54,7 @@ public class Main {
         closeReader(reader);
     }
 
-    public static void showMenu() {
+    private static void showMenu() {
         System.out.println("\n===== 메뉴 =====");
         System.out.println("1. 주문 하기");
         System.out.println("2. 주문 내역 확인");

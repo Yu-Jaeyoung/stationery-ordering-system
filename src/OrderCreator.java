@@ -9,11 +9,13 @@ public class OrderCreator {
     private Order order;
     private final OrderList orderList;
 
-    public OrderCreator(OrderList orderList) {
+    // TODO : 변수, 파라미터, product name 등에 final을 붙여서 값 재할당 방지 가능
+    public OrderCreator(final OrderList orderList) {
         this.orderList = orderList;
     }
 
 
+    // TODO : BufferedReader reader 부분 상단에 static 선언 진행해서 파라미터에 중복되지 않게 설정 가능
     public void createOrder(BufferedReader reader) {
         System.out.println("주문서 작성을 시작합니다.");
 
@@ -24,6 +26,7 @@ public class OrderCreator {
 
         while (true) {
             try {
+
                 System.out.print("품명: ");
                 productName = readUserInput(reader);
 
@@ -37,22 +40,25 @@ public class OrderCreator {
                 unitPrice = Double.parseDouble(readUserInput(reader));
 
                 break;
+
             } catch (NumberFormatException e) {
                 System.out.println("잘못된 형식의 입력입니다. 다시 입력하세요.");
             }
         }
 
-        order = new Order(productName, unit, quantity, unitPrice);
         orderList.addOrder(order);
 
         System.out.println("주문서 작성이 완료되었습니다.");
         showOrderDetails();
 
         while (true) {
+
             System.out.print("주문서를 수정하시겠습니까? (Y/N): ");
             String modifyChoice = readUserInput(reader);
+
             if (modifyChoice.equalsIgnoreCase("Y")) {
                 modifyOrder(reader);
+
                 break;
             } else if (modifyChoice.equalsIgnoreCase("N")) {
                 break;
@@ -71,6 +77,7 @@ public class OrderCreator {
         System.out.println("합계: " + order.getTotal());
     }
 
+    // TODO : 주문서 수정 부분 구체화
     public void modifyOrder(BufferedReader reader) {
         System.out.println("주문서 수정을 시작합니다.");
 

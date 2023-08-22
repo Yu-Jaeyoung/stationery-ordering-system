@@ -12,7 +12,18 @@ public class OrderDetailsViewer {
     }
 
     public void showAllOrderDetails() {
-        List<Order> orders = orderList.getOrders();
+        final List<Order> orders = orderList.getOrders();
+//        if (orders.isEmpty()) {
+//            System.out.println("주문 내용이 없습니다.");
+//            return;
+//        }
+//
+//        System.out.println("전체 주문 내역:");
+//        for (int i = 0; i < orders.size(); i++) {
+//            System.out.println("주문 " + (i + 1) + ":");
+//            showOrderDetails(orders.get(i));
+//        }
+
         if (!orders.isEmpty()) {
             System.out.println("전체 주문 내역:");
             for (int i = 0; i < orders.size(); i++) {
@@ -24,6 +35,7 @@ public class OrderDetailsViewer {
         }
     }
 
+    // TODO : toString Override 로 수정
     public void showOrderDetails(Order order) {
         System.out.println("품명: " + order.getProductName());
         System.out.println("단위: " + order.getUnit());
