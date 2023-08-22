@@ -1,18 +1,15 @@
 package src;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
 import src.data.OrderList;
 import src.data.StationeryShop;
 
-import static src.utils.IOUtils.closeReader;
-import static src.utils.IOUtils.readUserInput;
+import static src.utils.IOUtils.*;
 
 public class Main {
-    final static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) {
+        boolean state = true;
+
         OrderList orderList = new OrderList();
         OrderDetailsViewer orderDetailsViewer = new OrderDetailsViewer(orderList);
         OrderCreator orderCreator = new OrderCreator(orderList);
@@ -20,38 +17,32 @@ public class Main {
         EstimatePrinter estimatePrinter = new EstimatePrinter(stationeryShop);
 
         try {
-            // TODO : bolean 값을 활용해서 상태를 변경해서 끝낼 수 있게 조정 -> 현재는 true값으로만 지정되어있는 상태
-            while (true) {
+            while (state) {
                 showMenu();
-                // TODO : Switch문 수정
                 System.out.print("원하는 작업을 선택하세요: ");
-                String choice = readUserInput(reader);
+                String choice = readUserInput();
                 switch (choice) {
-                    case "1":
-                        orderCreator.createOrder(reader);
-                        break;
-                    case "2":
-                        orderDetailsViewer.showAllOrderDetails();
-                        break;
-                    case "3":
+                    case "1" -> orderCreator.createOrder();
+                    case "2" -> orderDetailsViewer.showAllOrderDetails();
+                    case "3" -> {
                         System.out.println("\n문구점 정보를 출력합니다.\n");
                         stationeryShop.showInformation();
-                        break;
-                    case "4":
+                    }
+                    case "4" -> {
                         System.out.println("\n견적서를 출력합니다.\n");
                         estimatePrinter.printEstimate(orderList);
-                        break;
-                    case "5":
+                    }
+                    case "5" -> {
                         System.out.println("\n프로그램을 종료합니다.\n");
-                        return;
-                    default:
-                        System.out.println("잘못된 선택입니다.");
+                        state = false;
+                    }
+                    default -> System.out.println("잘못된 선택입니다.");
                 }
             }
         } catch (NumberFormatException e) {
             System.out.println("잘못된 형식의 입력입니다.");
         }
-        closeReader(reader);
+        closeReader();
     }
 
     private static void showMenu() {

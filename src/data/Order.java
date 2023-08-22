@@ -7,7 +7,7 @@ public class Order {
     private final double unitPrice;
     private final double total;
 
-    public Order(String productName, String unit, int quantity, double unitPrice) {
+    public Order(final String productName, final String unit, final int quantity, final double unitPrice) {
         this.productName = productName;
         this.unit = unit;
         this.quantity = quantity;
@@ -33,5 +33,14 @@ public class Order {
 
     public double getTotal() {
         return total;
+    }
+
+    @Override
+    public String toString() {
+        return  "\n품명 : " + productName +
+                " 단위 : " + unit +
+                " 수량 : " + quantity +
+                " 단가 : " + unitPrice +
+                " 총 금액 : " + total;
     }
 }

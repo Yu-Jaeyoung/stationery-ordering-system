@@ -7,11 +7,11 @@ import src.data.StationeryShop;
 public class EstimatePrinter {
     private final StationeryShop stationeryShop;
 
-    public EstimatePrinter(StationeryShop stationeryShop) {
+    public EstimatePrinter(final StationeryShop stationeryShop) {
         this.stationeryShop = stationeryShop;
     }
 
-    public void printEstimate(OrderList orderList) {
+    public void printEstimate(final OrderList orderList) {
         double totalEstimate = 0.0;
 
         for (Order order : orderList.getOrders()) {
