@@ -61,8 +61,11 @@ public class OrderManagement {
 
 
                 while (modifySate) {
-                    System.out.println("내용 수정 ? (Y/N) : ");
+
+                    System.out.print("내용 수정 ? (Y/N) : ");
+                    // TODO : Y/N 외 입력에 대한 처리 추가 필요
                     String choice = readUserInput().toLowerCase();
+
                     if (choice.equals("y")) {
                         System.out.print("수정할 정보를 선택하세요. : ");
                         choice = readUserInput();
@@ -72,7 +75,7 @@ public class OrderManagement {
                                 productName = readUserInput();
                                 System.out.println("수정 완료");
                             }
-
+                            // TODO : 단위 부분 Enum 타입으로 지정 ? ?
                             case "단위" -> {
                                 System.out.print("new 단위 ? : ");
                                 unit = readUserInput();
@@ -101,7 +104,8 @@ public class OrderManagement {
                 Item item = new Item(productName, unit, quantity, unitPrice);
                 order.addItem(item);
 
-                System.out.print("더 아이템을 추가하시겠습니까? (y/n): ");
+                // TODO : Y/N 외 입력에 대한 처리 추가 필요
+                System.out.print("더 아이템을 추가하시겠습니까? (Y/N): ");
                 String continueInput = readUserInput();
                 state = continueInput.equalsIgnoreCase("y");
 
@@ -113,7 +117,7 @@ public class OrderManagement {
                 System.out.println("잘못된 형식의 입력입니다. 다시 입력하세요.");
             }
         }
-        return orderLists.addOrder(order) - 1;
+        return orderLists.addOrder(order);
     }
 
     public void addItem(int orderNum) {
@@ -136,7 +140,9 @@ public class OrderManagement {
                 double unitPrice = Double.parseDouble(readUserInput());
 
                 while (modifySate) {
-                    System.out.println("내용 수정 ? (Y/N) : ");
+
+                    // TODO : Y/N 외 입력에 대한 처리 추가 필요
+                    System.out.print("내용 수정 ? (Y/N) : ");
                     String choice = readUserInput().toLowerCase();
                     if (choice.equals("y")) {
                         System.out.print("수정할 정보를 선택하세요. : ");
@@ -174,9 +180,10 @@ public class OrderManagement {
                 }
 
                 Item item = new Item(productName, unit, quantity, unitPrice);
-                orderLists.getOrders().get(orderNum).addItem(item);
+                orderLists.getOrders().get(orderNum - 1).addItem(item);
 
-                System.out.print("더 아이템을 추가하시겠습니까? (y/n): ");
+                // TODO : Y/N 외 입력에 대한 처리 추가 필요
+                System.out.print("더 아이템을 추가하시겠습니까? (Y/N): ");
                 String continueInput = readUserInput();
 
                 state = continueInput.equalsIgnoreCase("y");
