@@ -16,7 +16,7 @@ public class AdminLogin {
             System.out.print("비밀번호 : ");
             String enteredPassword = readUserInput();
 
-            if (enteredId.equals(shop.id) && enteredPassword.equals(shop.password)) {
+            if (enteredId.equals(shop.getId()) && enteredPassword.equals(shop.getPassword())) {
                 String owner = shop.getOwner();
                 System.out.println("로그인 성공");
                 System.out.println(owner + " 님 환영합니다.");
