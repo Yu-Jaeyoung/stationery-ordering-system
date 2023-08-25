@@ -8,8 +8,8 @@ public class StationeryShop {
     String businessType = "도,소매";
     String category = "문구,전산,잡화";
     String phoneNumber = "010-1234-5678";
-    public String id = "jackyu0721";
-    public String password = "1234";
+    final String id = "jackyu0721";
+    String password = "1234";
     double commission = 0.1;
 
     public void changeStationeryShopInfo() {
@@ -51,12 +51,6 @@ public class StationeryShop {
                     System.out.println("수정 완료");
                 }
 
-                case "id" -> {
-                    System.out.print("new id ? : ");
-                    id = readUserInput();
-                    System.out.println("수정 완료");
-                }
-
                 case "password" -> {
                     System.out.println("new password ? : ");
                     password = readUserInput();
@@ -76,6 +70,14 @@ public class StationeryShop {
 
     public String getOwner() {
         return owner;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     @Override

@@ -12,11 +12,15 @@ public class OrderLists {
 
     public int addOrder(final Order order) {
         orders.add(order);
-        return orders.size();
+        return orders.size(); // return 되는 값 : 주문 번호
     }
 
     public List<Order> getOrders() {
         return orders;
+    }
+
+    public int getListSize() {
+        return orders.size();
     }
 
     public double getTotalPrice() {
