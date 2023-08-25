@@ -82,6 +82,12 @@ Summary
 <br>
 
 # 👍🏻 Process
+### ⏳ 230824 → [Link To Notion](https://jaeyoung-yu.notion.site/230824-fbb6344972cb4b9189ec1d5652632723?pvs=4)
+
+- 피드백 적용
+
+- 시스템 기능 구체화 및 1차 구현 완료
+
 ### ⏳ 230822 → [Link To Notion](https://jaeyoung-yu.notion.site/230822-a0868736194c410c9273bc07250a601f?pvs=4)
 
 - 피드백 사항 반영
