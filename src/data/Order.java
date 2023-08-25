@@ -14,6 +14,10 @@ public class Order extends OrderLists {
         items.add(item);
     }
 
+    public List<Item> getItems() {
+        return items;
+    }
+
     public double getTotalPrice() {
         double total = 0;
         for (Item item : items) {

@@ -4,6 +4,8 @@ import src.data.Item;
 import src.data.Order;
 import src.data.OrderLists;
 
+import java.util.List;
+
 import static src.utils.IOUtils.readUserInput;
 
 public class OrderManagement {
@@ -16,29 +18,12 @@ public class OrderManagement {
     }
 
     public void isNewOrder() {
-        System.out.println("1. 새로운 견적서 작성");
-        System.out.println("2. 기존 견적서에 추가");
-        System.out.print("번호 입력 : ");
-        String choice = readUserInput();
+        int orderNum = addItem();
+        System.out.println("견적서 번호 : " + orderNum);
+    }
 
-        switch (choice) {
-            case "1" -> {
-                System.out.println("새로운 견적서 작성을 진행합니다.");
-
-                int orderNum = addItem();
-
-                System.out.println("견적서 번호 : " + orderNum);
-            }
-            // TODO : 견적서가 존재하지 않는 경우에 대한 예외 처리 필요
-            case "2" -> {
-                System.out.println("기존 견적서에 추가로 작성합니다.");
-                System.out.print("견적서 번호를 입력하세요 : ");
-
-                String orderNum = readUserInput();
-                addItem(Integer.parseInt(orderNum));
-            }
-            default -> System.out.println("잘못된 선택입니다.");
-        }
+    public void isExistOrder(int orderNum){
+        addItem(orderNum);
     }
 
     public int addItem() {
@@ -194,6 +179,52 @@ public class OrderManagement {
 
             } catch (NumberFormatException e) {
                 System.out.println("잘못된 형식의 입력입니다. 다시 입력하세요.");
+            }
+        }
+    }
+
+    // TODO : 수정 기능 추가
+    public void fixOrderItem(int orderNum) {
+
+        // TODO : 취소 기능 추가 필요
+        System.out.print("품목명을 입력하시오. : ");
+        String productName = readUserInput();
+
+        Order targetOrder = orderLists.getOrders().get(orderNum - 1);
+
+        List<Item> items = targetOrder.getItems();
+
+        Item fixedItem = null;
+
+        // TODO : 해당하는 품목이 없는 경우에 대한 처리 추가 필요
+        for (Item item : items) {
+            if (item.getProductName().equals(productName)) {
+                fixedItem = item;
+                break;
+            }
+        }
+
+        if (fixedItem != null) {
+
+            // TODO : 취소 기능 추가 필요
+            System.out.println("수정할 내용을 선택하세요.");
+            System.out.println("1. 수량 ");
+            System.out.println("2. 단가 ");
+            System.out.print("숫자로 입력 : ");
+            String choice = readUserInput();
+
+            switch (choice) {
+                case "1" -> {
+                    System.out.print("수정 할 수량 : ");
+                    int quantity = Integer.parseInt(readUserInput());
+                    fixedItem.updateQuantity(quantity);
+                }
+
+                case "2" -> {
+                    System.out.print("수정 할 단가 : ");
+                    double unitPrice = Double.parseDouble(readUserInput());
+                    fixedItem.updateUnitPrice(unitPrice);
+                }
             }
         }
     }
